@@ -1,0 +1,28 @@
+# --- Environment ---
+.env
+.DS_Store
+
+# --- Python ---
+__pycache__/
+*.pyc
+venv/
+.venv/
+.mypy_cache/
+.pytest_cache/
+
+# --- Dependencies ---
+# Virtual environment folder for Python packages
+/venv
+/env
+
+# Python specific files and directories
+# Logs and database files
+*.log
+*.sqlite3
+
+# Google Sheets specific files (credentials)
+# Even though the content is in .env, sometimes local JSON files are created
+*.json
+
+# Flask/Web Framework specific
+instance/
