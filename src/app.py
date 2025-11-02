@@ -8,6 +8,9 @@ Sets up Flask routes and handles incoming requests.
 import os
 from flask import Flask, request, jsonify, render_template
 from src.api.sheets_service import append_expense_row
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 # Initialize Flask app
 app = Flask(__name__, template_folder='templates') 
@@ -41,8 +44,10 @@ def add_expense():
         # Return success response
         return jsonify({"status": "success", "message": "Expense recorded successfully!"})
 
+    
+
     except Exception as e:
-        print(f"An error occurred: {e}")
+        logging.exception("An error occurred while processing an expense submission.")
         return jsonify({"status": "error", "message": f"Server error: {e}"}), 500
 
 # ---------------------------------------------------------------
